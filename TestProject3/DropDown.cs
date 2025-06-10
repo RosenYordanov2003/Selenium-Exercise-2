@@ -17,6 +17,7 @@ namespace TestProject3
         {
             // Create object of ChromeDriver
             ChromeOptions options = new ChromeOptions();
+            options.AddArgument("--user-data-dir=/tmp/unique-profile-dir-" + Guid.NewGuid().ToString());
             options.AddArguments("headless");
             options.AddArguments("no-sandbox");
             options.AddArguments("disable-dev-shm-usage");
