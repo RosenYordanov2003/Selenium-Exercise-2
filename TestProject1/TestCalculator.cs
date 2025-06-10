@@ -3,6 +3,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using NUnit.Framework;
 using System;
+using OpenQA.Selenium.Interactions;
 
 namespace TestProject1
 {
@@ -20,7 +21,13 @@ namespace TestProject1
         [OneTimeSetUp]
         public void SetUp()
         {
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.AddArguments("headless");
+            options.AddArguments("no-sandbox");
+            options.AddArguments("disable-dev-shm-usage");
+            options.AddArguments("disable-gpu");
+            options.AddArguments("window-size=1920x1080");
+            driver = new ChromeDriver(options);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             driver.Url = "http://softuni-qa-loadbalancer-2137572849.eu-north-1.elb.amazonaws.com/number-calculator/";
 
