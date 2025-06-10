@@ -23,7 +23,7 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y google-chrome-stable
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore SeleniumBasicExercise.sin
     - name: Build
       run: dotnet build SeleniumBasicExercise.sin --no-restore
     - name: Run TestProject2 Tests
